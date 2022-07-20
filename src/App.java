@@ -10,6 +10,7 @@ import java.io.PrintStream;
 import static java.nio.charset.StandardCharsets.UTF_8;  
 import util.ApiConsumer;
 import util.Config;
+import util.GeradorDeFigurinhas;
 import util.RapidAPI;
 import util.JsonParser;
 
@@ -18,13 +19,14 @@ import util.JsonParser;
 public class App {
     public static void main(String[] args) throws Exception {        
         
-       
-        searchImdb("Top250Movies");
+       //GeradorDeFigurinhas geradorDeFigurinhas = new GeradorDeFigurinhas();
+       //geradorDeFigurinhas.criar("images/filme.jpg");
+        searchImdb("Top250Movies",true);
 
     }
     
 
-    public static void searchImdb(String endpoint){
+    public static void searchImdb(String endpoint, Boolean gerarFigurinha){
         
         ApiConsumer apiConsumer = new ApiConsumer();
         
@@ -38,6 +40,7 @@ public class App {
         JsonParser parser = new JsonParser();
         List<Map<String, String>> listaDeFilmes = parser.parse(json);
 
+        GeradorDeFigurinhas geradorDeFigurinhas = new GeradorDeFigurinhas();
 
         //seleção/exibição dos intens
         
@@ -47,6 +50,16 @@ public class App {
             System.out.println("\u001B[40mImage: " + filme.get("image"));
             System.out.println("Nota: "  + filme.get("imDbRating"));
             System.out.println("");
+
+            try {
+                if(gerarFigurinha){
+                    geradorDeFigurinhas.criar(filme.get("image"),filme.get("id"));
+                }
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }     
+       
         }
 
     }
