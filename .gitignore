@@ -2,3 +2,4 @@ src/configuration.properties
 bin/configuration.properties
 
 images/*
+*.class

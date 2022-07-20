@@ -49,7 +49,7 @@ public class App {
                 if(gerarFigurinha){
                     //geradorDeFigurinhas.criar(filme.get("image"),filme.get("id"));
                     InputStream inputStream = new URL(filme.get("image")).openStream();
-                    geradorDeFigurinhas.criar(inputStream,filme.get("id"));
+                    geradorDeFigurinhas.criar(inputStream,filme.get("title"));
                 }
             } catch (Exception e) {
                 // TODO Auto-generated catch block
