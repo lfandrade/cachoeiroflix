@@ -1,20 +1,12 @@
-import java.net.URI;
+import java.io.InputStream;
 import java.net.URL;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
-import java.io.InputStream;
-import java.io.PrintStream;  
-import static java.nio.charset.StandardCharsets.UTF_8;  
+
 import util.ApiConsumer;
-import util.Config;
 import util.GeradorDeFigurinhas;
-import util.RapidAPI;
 import util.JsonParser;
+import util.RapidAPI;
 
 
 
