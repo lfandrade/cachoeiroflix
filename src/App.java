@@ -5,9 +5,11 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.io.PrintStream;  
 import static java.nio.charset.StandardCharsets.UTF_8;  
 import util.ApiConsumer;
+import util.Config;
 import util.RapidAPI;
 import util.JsonParser;
 
@@ -15,8 +17,14 @@ import util.JsonParser;
 
 public class App {
     public static void main(String[] args) throws Exception {        
-        searchImdb("Top250Movies");
+        
+        Config c = new Config();
+        Properties p = c.loadProperties("C:\\dados\\java\\Cachoeiro\\src\\configuration.properties");
+        
+        searchImdb(p.getProperty("imdb.api.endpoint").toString()+".Top250Movies");
+        
     }
+    
 
     public static void searchImdb(String endpoint){
         
