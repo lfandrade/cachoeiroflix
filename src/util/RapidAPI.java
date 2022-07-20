@@ -13,10 +13,6 @@ public class RapidAPI {
     private HttpClient client;
     private HttpRequest request;
 
-    /*url = "https://imdb-api.com/en/API/Top250Movies/k_le3hl6wp";
-        uri = URI.create(url);
-        client = HttpClient.newHttpClient();
-        request = HttpRequest.newBuilder(uri).build(); */
 
     public String request(String url){
 
@@ -43,8 +39,8 @@ public class RapidAPI {
 
     public String translateText(String text){
         
-        String lang = "pt-br";
-        String urlTranslate = "https://translated-mymemory---translation-memory.p.rapidapi.com/api/get?langpair="+lang+"%7Cit&q="+text+"&mt=1&onlyprivate=0&de=a%40b.c";
+        String lang = "pt";
+        String urlTranslate = "https://translated-mymemory---translation-memory.p.rapidapi.com/api/get?langpair=en%7C"+lang+"%7Cit&q="+text+"&mt=1&onlyprivate=0&de=a%40b.c";
         
         this.request(urlTranslate);
         

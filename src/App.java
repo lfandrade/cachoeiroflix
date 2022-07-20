@@ -18,9 +18,9 @@ public class App {
         System.out.println("Olá Cachoeiro");
 
        
-        //searchImdb("Top250Movies");
+        searchImdb("Top250Movies");
 
-        translateText("Hello");
+        //translateText("Hello");
 
 
 
@@ -63,6 +63,7 @@ public class App {
         
         for (Map<String, String> filme : listaDeFilmes) {
             System.out.println("Filme: " + filme.get("title"));
+            System.out.println("Filme (PT-BR): " + translateText(filme.get("title").replaceAll(" ", "%20")));
             System.out.println("Image: " + filme.get("image"));
             System.out.println("Nota: "  + filme.get("imDbRating"));
             System.out.println("");
@@ -75,9 +76,14 @@ public class App {
         //System.out.println(listaDeFilmes.get(1).get("title"));
     }
 
-    public static void translateText(String text){
+    public static String translateText(String text){
         RapidAPI rapidAPI = new RapidAPI();
-        System.out.println(rapidAPI.translateText(text));
+        String bodyTranslate = rapidAPI.translateText(text);
+        JsonParser parser = new JsonParser();
+        List<Map<String, String>> items = parser.parse(bodyTranslate);
+
+        String translatedText = items.get(0).get("translation");
+        return translatedText;
     }
 
     
