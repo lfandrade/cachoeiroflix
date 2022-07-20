@@ -40,7 +40,8 @@ public class RapidAPI {
     public String translateText(String text){
         
         String lang = "pt";
-        String urlTranslate = "https://translated-mymemory---translation-memory.p.rapidapi.com/api/get?langpair=en%7C"+lang+"%7Cit&q="+text+"&mt=1&onlyprivate=0&de=a%40b.c";
+        String formatText = text.replaceAll(" ", "%20");
+        String urlTranslate = "https://translated-mymemory---translation-memory.p.rapidapi.com/api/get?langpair=en%7C"+lang+"%7Cit&q="+formatText+"&mt=1&onlyprivate=0&de=a%40b.c";
         
         this.request(urlTranslate);
         
