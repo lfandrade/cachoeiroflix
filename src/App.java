@@ -39,8 +39,9 @@ public class App {
         //seleção/exibição dos intens
         
         for (Map<String, String> filme : listaDeFilmes) {
+            String tituloTrazuzido = translateText(filme.get("title"));
             System.out.println("\u001B[40mFilme: " + filme.get("title"));
-            System.out.println("\u001B[42mFilme (PT-BR): " + translateText(filme.get("title")));
+            System.out.println("\u001B[42mFilme (PT-BR): " + tituloTrazuzido);
             System.out.println("\u001B[40mImage: " + filme.get("image"));
             System.out.println("Nota: "  + filme.get("imDbRating"));
             System.out.println("");
@@ -49,7 +50,7 @@ public class App {
                 if(gerarFigurinha){
                     //geradorDeFigurinhas.criar(filme.get("image"),filme.get("id"));
                     InputStream inputStream = new URL(filme.get("image")).openStream();
-                    geradorDeFigurinhas.criar(inputStream,filme.get("title"));
+                    geradorDeFigurinhas.criar(inputStream,filme.get("title"), tituloTrazuzido);
                 }
             } catch (Exception e) {
                 // TODO Auto-generated catch block

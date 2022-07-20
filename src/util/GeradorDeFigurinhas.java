@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 
 public class GeradorDeFigurinhas {
 
-    public void criar(InputStream inputStream, String novoArquivo) throws Exception{
+    public void criar(InputStream inputStream, String novoArquivo, String tituloTrazuzido) throws Exception{
 
 
         //leitura da image
@@ -40,7 +40,7 @@ public class GeradorDeFigurinhas {
         graphics.setColor(Color.BLUE);
         
         //escrever um texto na nova imagem
-        graphics.drawString("JAVA", 50, altura+(novoSegmento/2));
+        graphics.drawString(tituloTrazuzido, 30, altura+(novoSegmento/2));
 
         //escrever a nova imagem/arquivo
         ImageIO.write(novaImagem, "png", new File("images/"+novoArquivo+".png"));
