@@ -18,10 +18,8 @@ import util.JsonParser;
 public class App {
     public static void main(String[] args) throws Exception {        
         
-        Config c = new Config();
-        Properties p = c.loadProperties("C:\\dados\\java\\Cachoeiro\\src\\configuration.properties");
-        
-        searchImdb(p.getProperty("imdb.api.endpoint").toString()+".Top250Movies");
+       
+        searchImdb("Top250Movies");
 
     }
     
@@ -30,12 +28,9 @@ public class App {
         
         ApiConsumer apiConsumer = new ApiConsumer();
         
-        //IMDB
-        String token ="k_le3hl6wp";
-        String url = "https://imdb-api.com/en/API/"+endpoint+"/"+token;
-
-        //Aquiles
-        url ="https://api.mocki.io/v2/549a5d8b";
+        String token = "549a5d8b";
+        String url = "https://api.mocki.io/v2/"+token;
+        
        
         String json = apiConsumer.request(url);
 
@@ -66,29 +61,6 @@ public class App {
         return translatedText;
     }
 
-    public static void c(){
-         //translateText("Lord of the rings");
-
-
-
-        /*List<FilmeTO> listagemFilmes = new ArrayList();
-        
-        Filmes filmes = new Filmes() {
-            
-        };
-
-        FilmeTO f1 = new FilmeTO("Filme 1","Ação","10");
-        FilmeTO f2 = new FilmeTO("Filme 2","Comédia","9");
-        FilmeTO f3 = new FilmeTO("Filme 3","Ação","8");
-
-        //listagemFilmes = filmes.listar();
-        listagemFilmes.add(f1);
-        listagemFilmes.add(f2);
-        listagemFilmes.add(f3);
-
-
-        System.out.println(listagemFilmes.size());*/
-    }
     
 }
 
