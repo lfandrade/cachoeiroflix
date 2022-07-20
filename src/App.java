@@ -1,4 +1,5 @@
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -6,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.io.InputStream;
 import java.io.PrintStream;  
 import static java.nio.charset.StandardCharsets.UTF_8;  
 import util.ApiConsumer;
@@ -53,7 +55,9 @@ public class App {
 
             try {
                 if(gerarFigurinha){
-                    geradorDeFigurinhas.criar(filme.get("image"),filme.get("id"));
+                    //geradorDeFigurinhas.criar(filme.get("image"),filme.get("id"));
+                    InputStream inputStream = new URL(filme.get("image")).openStream();
+                    geradorDeFigurinhas.criar(inputStream,filme.get("id"));
                 }
             } catch (Exception e) {
                 // TODO Auto-generated catch block

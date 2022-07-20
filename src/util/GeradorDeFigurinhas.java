@@ -14,12 +14,12 @@ import java.awt.Font;
 
 public class GeradorDeFigurinhas {
 
-    public void criar(String arquivo, String novoArquivo) throws Exception{
+    public void criar(InputStream inputStream, String novoArquivo) throws Exception{
 
 
         //leitura da image
         //BufferedImage imagemOriginal = ImageIO.read(new File(imageUrl));
-        InputStream inputStream = new URL(arquivo).openStream();
+        //InputStream inputStream = new URL(arquivo).openStream();
         
         BufferedImage imagemOriginal = ImageIO.read(inputStream);
 
