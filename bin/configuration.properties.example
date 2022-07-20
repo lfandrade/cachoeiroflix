@@ -1,4 +1,4 @@
-imdb.api.key="1"
-imdb.api.endpoint="Top250Movies"
-rapidapi.api.key="6094868363mshc00e29070dd17e2p108269jsn537e7c1b461e"
-rapidapi.api.endpoint="4"
+imdb.api.key=""
+imdb.api.endpoint=""
+rapidapi.api.key=""
+rapidapi.api.endpoint=""
