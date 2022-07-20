@@ -22,7 +22,7 @@ public class App {
         Properties p = c.loadProperties("C:\\dados\\java\\Cachoeiro\\src\\configuration.properties");
         
         searchImdb(p.getProperty("imdb.api.endpoint").toString()+".Top250Movies");
-        
+
     }
     
 
@@ -47,9 +47,9 @@ public class App {
         //seleção/exibição dos intens
         
         for (Map<String, String> filme : listaDeFilmes) {
-            System.out.println("Filme: " + filme.get("title"));
-            System.out.println("Filme (PT-BR): " + translateText(filme.get("title")));
-            System.out.println("Image: " + filme.get("image"));
+            System.out.println("\u001B[40mFilme: " + filme.get("title"));
+            System.out.println("\u001B[42mFilme (PT-BR): " + translateText(filme.get("title")));
+            System.out.println("\u001B[40mImage: " + filme.get("image"));
             System.out.println("Nota: "  + filme.get("imDbRating"));
             System.out.println("");
         }
